@@ -12,8 +12,19 @@
     <Card>
       <form @submit.prevent="submitBooking" class="space-y-4">
         <Input v-model="form.customer_name" placeholder="Your Name" />
-        <Input v-model="form.service_type" placeholder="Service Type" />
+        <select
+          v-model="form.service_type"
+          class="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded px-3 py-2 w-full"
+        >
+          <option disabled value="">Select Service Type</option>
+          <option>Tube/Tire</option>
+          <option>Brakes</option>
+          <option>Gears</option>
+          <option>Other/Not Listed</option>
+        </select>
+
         <Input v-model="form.location" placeholder="Your Location" />
+        <p class="text-gray-500 text-sm mb-1">Select a Date/Time</p>
         <Input v-model="form.appointment_time" type="datetime-local" />
 
         <Button :loading="form.processing" class="w-full">
@@ -35,6 +46,7 @@ import { ref } from 'vue'
 import DarkToggle from '../Components/DarkToggle.vue'
 import Input from '../Components/Input.vue'
 import Button from '../Components/Button.vue'
+import Datepicker from '../Components/Datepicker.vue'
 
 const form = ref({
   customer_name: '',
