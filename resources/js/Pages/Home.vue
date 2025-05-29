@@ -13,11 +13,11 @@
       <form @submit.prevent="submitBooking" class="space-y-4">
         <Input v-model="form.customer_name" placeholder="Your Name" />
         <Input v-model="form.service_type" placeholder="Service Type" />
-        <Input v-model="form.location" placeholder="Your Location (auto-detected)" />
+        <Input v-model="form.location" placeholder="Your Location" />
         <Input v-model="form.appointment_time" type="datetime-local" />
 
-        <Button :loading="form.processing || !locationReady" class="w-full">
-          {{ form.processing ? 'Submitting...' : (!locationReady ? 'Detecting Location...' : 'Submit Booking') }}
+        <Button :loading="form.processing" class="w-full">
+          {{ form.processing ? 'Submitting...' : 'Submit Booking' }}
         </Button>
       </form>
 
@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import DarkToggle from '../Components/DarkToggle.vue'
 import Input from '../Components/Input.vue'
 import Button from '../Components/Button.vue'
@@ -45,7 +45,6 @@ const form = ref({
 })
 
 const success = ref(false)
-const locationReady = ref(false)
 
 const submitBooking = async () => {
   success.value = false
@@ -71,37 +70,4 @@ const submitBooking = async () => {
     setTimeout(() => (success.value = false), 3000)
   }
 }
-
-const getLocation = async () => {
-  if (!navigator.geolocation) {
-    alert('Geolocation is not supported by your browser')
-    return
-  }
-
-  navigator.geolocation.getCurrentPosition(
-    async (position) => {
-      const { latitude, longitude } = position.coords
-
-      try {
-        const response = await fetch(
-          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
-        )
-        const data = await response.json()
-        form.value.location = data.display_name || `${latitude}, ${longitude}`
-      } catch (error) {
-        form.value.location = `${latitude}, ${longitude}`
-      } finally {
-        locationReady.value = true
-      }
-    },
-    () => {
-      alert('Unable to retrieve your location')
-      locationReady.value = false
-    }
-  )
-}
-
-onMounted(() => {
-  getLocation()
-})
 </script>
