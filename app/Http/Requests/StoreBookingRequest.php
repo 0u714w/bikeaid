@@ -12,11 +12,13 @@ class StoreBookingRequest extends FormRequest
     }
 
     public function rules(): array
-    {
-        return [
-            'customer_name' => 'required|string|max:255',
-            'service_type' => 'required|string|max:255',
-            'appointment_time' => 'required|date',
-        ];
-    }
+{
+    return [
+        'customer_name' => 'required|string|max:255',
+        'service_type' => 'required|string|max:255',
+        'location' => 'required|string|max:500', // 👈 Add this
+        'appointment_time' => 'required|date',
+    ];
+}
+
 }
