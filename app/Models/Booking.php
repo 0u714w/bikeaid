@@ -12,6 +12,9 @@ class Booking extends Model
     'appointment_time',
     'location',
     'status',
+    'price', 
+    'duration', 
+    'notes'
 ];
 
 }
