@@ -4,7 +4,7 @@
     <Card>
   <div class="flex flex-col items-center text-center space-y-4">
 <img
-      src="/images/bikeaid2.png"
+      src="/images/bikeaid.jpg"
       alt="BikeAid Logo"
       class="h-256 w-256"
     />   
