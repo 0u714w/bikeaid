@@ -1,13 +1,16 @@
 <template>
   <div class="max-w-xl mx-auto p-6 space-y-6">
-    <div class="flex justify-between items-center">
-      <h1 class="text-2xl font-bold">BikeAid</h1>
-      <DarkToggle />
-    </div>
-
+    <DarkToggle />
     <Card>
-      <p class="text-blue-600">Welcome! Book a convenient repair service at your location.</p>
-    </Card>
+  <div class="flex flex-col items-center text-center space-y-4">
+<img
+      src="/images/bikeaid2.png"
+      alt="BikeAid Logo"
+      class="h-256 w-256"
+    />   
+  </div>
+</Card>
+
     <Card>
       <form @submit.prevent="submitBooking" class="space-y-4">
         <Input v-model="form.customer_name" placeholder="Your Name" />
@@ -23,7 +26,7 @@
 
         <textarea v-model="form.notes" placeholder="Additional Notes (e.g. noise, rush job?)"
           class="w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100"></textarea>
-          <p class="text-gray-500 text-sm mb-1">Select a Date/Time</p>
+          <p class="text-blue text-sm mb-1">Select a Date/Time</p>
         <Input v-model="form.appointment_time" type="datetime-local" />
         <br>
         <br>
