@@ -6,10 +6,10 @@
 
         <title>BikeAid - Your Cycling Companion</title>
     <meta property="og:title" content="BikeAid - Your Cycling Companion">
-    <meta property="og:description" content="BikeAid helps cyclists with tools, routes, and community support.">
+    <meta property="og:description" content="BikeAid is convenient bicycle repair service that meets at your location.">
     <meta property="og:url" content="https://bikeaid.co">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="{{ asset('images/preview.jpg') }}">
+    <meta property="og:image" content="{{ asset('images/bikeaid.jpg') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
