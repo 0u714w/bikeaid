@@ -9,7 +9,7 @@
     <meta property="og:description" content="BikeAid is convenient bicycle repair service that meets at your location.">
     <meta property="og:url" content="https://bikeaid.co">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="{{ asset('images/bikeaid.jpg') }}">
+    <meta property="og:image" conten<meta property="og:image" content="https://bikeaid.co/images/bikeaid.jpg">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
